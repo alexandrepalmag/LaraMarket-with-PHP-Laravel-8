@@ -15,4 +15,13 @@ class Store extends Model
 
         $this->belongsTo(User::class);
     }
+
+
+    //Representation that one store has many products
+
+    public function products()
+    {
+
+        return $this->hasMany(Product::class);
+    }
 }
