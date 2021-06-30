@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
 
+    protected $fillable = ['name', 'description', 'body', 'price', 'slug'];
+
     //Representation that one product pertence a uma loja
     public function store()
     {

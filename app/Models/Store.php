@@ -9,6 +9,8 @@ class Store extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'description', 'phone', 'mobile_phone', 'slug'];
+
     //Representation that a store belongs to a user.
     public function user()
     {
