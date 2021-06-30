@@ -40,4 +40,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Representation that a user has a store.
+    public function store()
+    {
+
+        return $this->hasOne(Store::class);
+    }
 }
