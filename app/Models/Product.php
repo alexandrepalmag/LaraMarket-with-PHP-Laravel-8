@@ -15,5 +15,12 @@ class Product extends Model
         return $this->belongsTo(Store::class);
     }
 
+    // Representation that one product can belong to many categories
+    public function categories()
+    {
+
+        return $this->belongsToMany(Category::class);
+    }
+
     use HasFactory;
 }

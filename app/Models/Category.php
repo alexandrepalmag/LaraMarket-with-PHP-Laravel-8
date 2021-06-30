@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+
+    // Representation that one category can belong to many products
+    public function products()
+    {
+
+        return $this->belongsToMany(Product::class);
+    }
+
     use HasFactory;
 }
