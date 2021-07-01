@@ -3,12 +3,9 @@
 namespace Database\Seeders;
 
 use Carbon\Factory;
-use Faker\Factory as FakerFactory;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 use App\Models\User;
+use App\Models\Store;
 
 class UsersTableSeeder extends Seeder
 {
@@ -30,7 +27,9 @@ class UsersTableSeeder extends Seeder
         ); */
 
 
-      /*  User::factory()->count(50)->create(); */
-        
+        User::factory()->count(50)->create()->each(function ($user) {
+
+            $user->store()->save(Store::factory()->make());
+        });
     }
 }
