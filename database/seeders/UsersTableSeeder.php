@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Carbon\Factory;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Store;

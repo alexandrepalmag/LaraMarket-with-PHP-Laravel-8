@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Models\Product;
-use \App\Models\User;
+use App\Models\Product;
+use App\Models\Store;
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Collection;
 
 /*
@@ -21,7 +23,17 @@ Route::get('/', function () {
 });
 
 Route::get('/model', function () {
-    $users = User::paginate(4);
 
-    return $users;
+    $user = User::find(4);
+
+    $store=$user->store()->create([
+        'name'=>'Loja Teste',
+        'description'=>'Loja Teste',
+        'mobile_phone'=>'Loja Teste',
+        'phone'=>'Loja Teste',
+        'slug'=>'Loja Teste'
+    ]);
+
+    dd($store);
+
 });
