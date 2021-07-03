@@ -51,3 +51,4 @@ Route::get('/model', function () {
 
 Route::get('/admin/stores', [StoreController::class, 'index'])->name('admin.stores');
 Route::get('/admin/stores/create', [StoreController::class, 'create'])->name('admin.stores.create');
+Route::post('/admin/stores/store', [StoreController::class, 'store'])->name('admin.stores.store');
