@@ -32,6 +32,8 @@
     </table>
 
 </body>
-{{ $stores->links() }}
+<div>
+    {{ $stores->links() }}
+</div>
 
 </html>

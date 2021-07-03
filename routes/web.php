@@ -37,18 +37,25 @@ Route::get('/model', function () {
 
     $user = User::find(4);
 
-    $store=$user->store()->create([
-        'name'=>'Loja Teste',
-        'description'=>'Loja Teste',
-        'mobile_phone'=>'Loja Teste',
-        'phone'=>'Loja Teste',
-        'slug'=>'Loja Teste'
+    $store = $user->store()->create([
+        'name' => 'Loja Teste',
+        'description' => 'Loja Teste',
+        'mobile_phone' => 'Loja Teste',
+        'phone' => 'Loja Teste',
+        'slug' => 'Loja Teste'
     ]);
 
     dd($store);
-
 });
 
-Route::get('/admin/stores', [StoreController::class, 'index'])->name('admin.stores');
-Route::get('/admin/stores/create', [StoreController::class, 'create'])->name('admin.stores.create');
-Route::post('/admin/stores/store', [StoreController::class, 'store'])->name('admin.stores.store');
+
+
+Route::prefix('admin')->group(function () {
+
+    Route::prefix('stores')->group(function () {
+
+        Route::get('/', [StoreController::class, 'index'])->name('admin.stores');
+        Route::get('/create', [StoreController::class, 'create'])->name('admin.stores.create');
+        Route::post('/store', [StoreController::class, 'store'])->name('admin.stores.store');
+    });
+});
