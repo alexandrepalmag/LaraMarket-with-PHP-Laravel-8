@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+    <br>
+    <div>
+        <a href="{{ route('admin.stores.create') }}" class="btn btn-lg btn-success">Create Store</a>
+    </div>
+    <br>
 
     <body>
 
-        <table class="table table-hover">
+        <table class="table table-bordered table-striped" style="width:100%" id="tableStore">
             <thead>
                 <tr>
                     <th>#</th>
@@ -18,7 +23,12 @@
                     <tr>
                         <td>{{ $store->id }}</td>
                         <td>{{ $store->name }}</td>
-                        <td></td>
+                        <td>
+                            <a href="{{ route('admin.stores.edit', ['store' => $store->id]) }}"
+                                class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></a>
+                            <a href="{{ route('admin.stores.destroy', ['store' => $store->id]) }}"
+                                class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
+                        </td>
                     </tr>
                 @endforeach
 
@@ -28,7 +38,9 @@
     </body>
     <div>
 
-        {{ $stores->links() }}
+        {{-- {{ $stores->links() }} --}}
+
+        {{-- {{ $stores->onEachSide(2)->links() }} --}}
 
     </div>
 @endsection

@@ -7,13 +7,16 @@ use Illuminate\Http\Request;
 use App\Models\Store;
 use App\Models\User;
 use PhpParser\Node\Expr\FuncCall;
+use Illuminate\Pagination\Paginator;
 
 class StoreController extends Controller
 {
     public function index()
     {
+        //Paginator::useBootstrap();
+        //$stores = Store::paginate(10);
 
-        $stores = Store::paginate(10);
+        $stores = Store::all();
 
         return view('admin.stores.index', compact('stores'));
     }
@@ -51,7 +54,7 @@ class StoreController extends Controller
         $store = Store::find($store);
         $store->update($data);
 
-        return $store;
+        return redirect()->route('admin.stores.index');
     }
 
     public function destroy($store)
@@ -60,6 +63,6 @@ class StoreController extends Controller
         $store = Store::find($store);
         $store->delete();
 
-        return redirect()->route('admin.stores');
+        return redirect()->route('admin.stores.index');
     }
 }
