@@ -40,11 +40,12 @@
             ]
         });
 
+
         document.querySelector(".btn-close").addEventListener('click', () => {
 
             document.getElementById("alertFade").remove();
 
-        })
+        });
 
     });
 </script>
