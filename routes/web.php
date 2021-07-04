@@ -59,5 +59,6 @@ Route::prefix('admin')->group(function () {
         Route::post('/store', [StoreController::class, 'store'])->name('admin.stores.store');
         Route::get('/{store}/edit', [StoreController::class, 'edit'])->name('admin.stores.edit');
         Route::post('/update/{store}', [StoreController::class, 'update'])->name('admin.stores.update');
+        Route::get('/destroy/{store}', [StoreController::class, 'destroy'])->name('admin.stores.destroy');
     });
 });
