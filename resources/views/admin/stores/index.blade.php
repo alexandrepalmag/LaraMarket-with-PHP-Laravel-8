@@ -1,39 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@section('content')
 
-<body>
+    <body>
 
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Store</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach ($stores as $store)
+        <table class="table table-hover">
+            <thead>
                 <tr>
-                    <td>{{ $store->id }}</td>
-                    <td>{{ $store->name }}</td>
-                    <td></td>
+                    <th>#</th>
+                    <th>Store</th>
+                    <th>Actions</th>
                 </tr>
-            @endforeach
+            </thead>
+            <tbody>
 
-        </tbody>
-    </table>
+                @foreach ($stores as $store)
+                    <tr>
+                        <td>{{ $store->id }}</td>
+                        <td>{{ $store->name }}</td>
+                        <td></td>
+                    </tr>
+                @endforeach
 
-</body>
-<div>
-    {{ $stores->links() }}
-</div>
+            </tbody>
+        </table>
 
-</html>
+    </body>
+    <div>
+
+        {{ $stores->links() }}
+
+    </div>
+@endsection
