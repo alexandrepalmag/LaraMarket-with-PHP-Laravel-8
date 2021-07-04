@@ -35,8 +35,10 @@
         </div>
         <br>
         <div class="form-group">
-            <a href="{{ route('admin.stores.index') }}" class="btn btn-danger"><i class="bi bi-x-circle" style="font-size: 1.5rem; color: rgb(255, 255, 255);"></i></a>
-            <button type="submit" class="btn btn-primary"><i class="bi bi-cloud-check" style="font-size: 1.5rem;"></i></button>
+            <a href="{{ route('admin.stores.index') }}" class="btn btn-danger"><i class="bi bi-x-circle"
+                    style="font-size: 1.5rem; color: rgb(255, 255, 255);"></i></a>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-cloud-check"
+                    style="font-size: 1.5rem;"></i></button>
         </div>
     </form>
 @endsection

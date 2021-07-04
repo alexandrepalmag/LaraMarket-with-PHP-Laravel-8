@@ -15,6 +15,14 @@
 <body>
 
     <div class="container">
+
+        @if (session('msg'))
+            <div class="alert alert-success alert-dismissible fade show" id="alertFade" role="alert">
+                <strong>{{ session('msg') }}</strong>
+                <button type="button" class="btn-close" aria-label="Close"></button>
+            </div>
+        @endif
+
         @yield('content')
     </div>
 
@@ -22,6 +30,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     $(document).ready(function() {
         $('#tableStore').DataTable({
@@ -30,6 +39,12 @@
                 [8, 10, 25, 50, 100, "All"]
             ]
         });
+
+        document.querySelector(".btn-close").addEventListener('click', () => {
+
+            document.getElementById("alertFade").remove();
+
+        })
 
     });
 </script>

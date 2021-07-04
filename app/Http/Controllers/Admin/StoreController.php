@@ -24,6 +24,7 @@ class StoreController extends Controller
     public function create()
     {
         $users = User::all(['id', 'name']);
+
         return view('admin.stores.create', compact('users'));
     }
 
@@ -35,7 +36,7 @@ class StoreController extends Controller
         $user = User::find($data['user']);
         $store = $user->store()->create($data);
 
-        return $store;
+        return redirect()->route('admin.stores.index')->with('msg', 'Store created successfully!');
     }
 
 
@@ -54,7 +55,7 @@ class StoreController extends Controller
         $store = Store::find($store);
         $store->update($data);
 
-        return redirect()->route('admin.stores.index');
+        return redirect()->route('admin.stores.index')->with('msg', 'Store updated successfully!');
     }
 
     public function destroy($store)
@@ -63,6 +64,6 @@ class StoreController extends Controller
         $store = Store::find($store);
         $store->delete();
 
-        return redirect()->route('admin.stores.index');
+        return redirect()->route('admin.stores.index')->with('msg', 'Store deleted successfully!');
     }
 }
