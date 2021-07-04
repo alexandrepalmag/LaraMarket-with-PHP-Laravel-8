@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Store;
 use App\Models\User;
+use PhpParser\Node\Expr\FuncCall;
 
 class StoreController extends Controller
 {
@@ -30,6 +31,25 @@ class StoreController extends Controller
 
         $user = User::find($data['user']);
         $store = $user->store()->create($data);
+
+        return $store;
+    }
+
+
+    public function edit($store)
+    {
+        $store = Store::find($store);
+
+        return view('admin.stores.edit', compact('store'));
+    }
+
+    public function update(Request $request, $store)
+    {
+
+        $data = $request->all();
+
+        $store = Store::find($store);
+        $store->update($data);
 
         return $store;
     }
