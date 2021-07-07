@@ -1,9 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Product Creation</h1>
-    <form action="{{ route('admin.products.store') }}" method="post">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <h1>Product Update</h1>
+    <form action="{{ route('admin.products.update', ['product' => $product->id]) }}" method="post">
+        
+        {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
+        @csrf
+        {{-- <input type="hidden" name="_method" value="PUT"> --}}
+        @method('PUT')
+
         <div class="form-group">
             <label for="">Product Name</label>
             <input type="text" name="name" class="form-control" value="{{ $product->name }}">
