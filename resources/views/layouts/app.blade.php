@@ -17,10 +17,12 @@
     <div class="container">
 
         @if (session('msg'))
-            <div class="alert alert-success alert-dismissible fade show" id="alertFade" role="alert">
+            <div class="alert"
+                style="position:absolute; margin-left:28%; width: 30%; margin-top: 5%; background: rgba(92, 184, 92, 0.2); text-align:center;"
+                id="alertFade" role="alert">
                 <strong>{{ session('msg') }}</strong>
-                <button type="button" class="btn-close" aria-label="Close"></button>
             </div>
+
         @endif
 
         @yield('content')
@@ -40,12 +42,20 @@
             ]
         });
 
+        /* setTimeout(function(){ 
+                let msg = document.getElementById("alertFade");
+                msg.parentNode.removeChild(msg);   
+            }, 5000);
+ */
+        setTimeout(() => {
 
-        document.querySelector(".btn-close").addEventListener('click', () => {
+            if (document.getElementById("alertFade") !== null) {
 
-            document.getElementById("alertFade").remove();
+                document.getElementById("alertFade").remove();
 
-        });
+            }
+
+        }, 2280);
 
     });
 </script>
